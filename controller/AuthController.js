@@ -54,7 +54,7 @@ module.exports = {
       });
       const userInfo = await newUser.save();
       const jwtToken = generateRefreshToken(userInfo._id);
-      const { password, ...userData } = userInfo;
+      const { password: toExclude, ...userData } = userInfo;
 
       // store user data and jwt token in session
       req.session.user = userData;
