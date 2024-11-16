@@ -106,7 +106,6 @@ module.exports = {
           // store user data and jwt token in session
           req.session.user = userData;
           req.session.jwtToken = jwtToken;
-          console.log("Session:", req.session);
 
           return res.status(200).json({
             isSuccess: true,
