@@ -12,7 +12,7 @@ connectDb();
 require("./models/User.js");
 require("./models/Post.js");
 
-app.set("trust proxy", 3);
+app.set("trust proxy", 1);
 
 app.use((req, res, next) => {
   console.log("Client IP:", req.ip);
@@ -29,7 +29,6 @@ app.use(
   })
 );
 app.use(express.json());
-
 // configure session
 app.use(
   session({
@@ -43,7 +42,7 @@ app.use(
     cookie: {
       httpOnly: true,
       sameSite: "lax",
-      secure: true, // should be set to true when pushed on production
+      secure: false, // should be set to true when pushed on production
       maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
     },
   })
