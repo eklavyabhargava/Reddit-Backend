@@ -12,7 +12,7 @@ connectDb();
 require("./models/User.js");
 require("./models/Post.js");
 
-app.set("trust proxy", true);
+app.set("trust proxy", 2);
 
 app.use(
   cors({
