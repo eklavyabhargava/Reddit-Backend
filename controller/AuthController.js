@@ -59,11 +59,6 @@ module.exports = {
       // store user data and jwt token in session
       req.session.user = userData;
       req.session.jwtToken = jwtToken;
-      req.session.save((err) => {
-        if (err) {
-          console.error("Session save error:", err);
-        }
-      });
 
       res.status(201).json({
         isSuccess: true,
@@ -111,11 +106,6 @@ module.exports = {
           // store user data and jwt token in session
           req.session.user = userData;
           req.session.jwtToken = jwtToken;
-          req.session.save((err) => {
-            if (err) {
-              console.error("Session save error:", err);
-            }
-          });
           console.log("Session:", req.session);
 
           return res.status(200).json({

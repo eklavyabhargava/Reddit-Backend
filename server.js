@@ -29,12 +29,13 @@ app.use(
   })
 );
 app.use(express.json());
+
 // configure session
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
