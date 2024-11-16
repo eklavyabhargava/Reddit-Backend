@@ -12,6 +12,8 @@ connectDb();
 require("./models/User.js");
 require("./models/Post.js");
 
+app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN,
