@@ -116,6 +116,7 @@ module.exports = {
               console.error("Session save error:", err);
             }
           });
+          console.log("Session:", req.session);
 
           return res.status(200).json({
             isSuccess: true,
