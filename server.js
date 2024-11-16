@@ -12,7 +12,7 @@ connectDb();
 require("./models/User.js");
 require("./models/Post.js");
 
-app.set("trust proxy", 2);
+app.set("trust proxy", 1);
 
 app.use((req, res, next) => {
   console.log("Client IP:", req.ip);
@@ -44,7 +44,7 @@ app.use(
     cookie: {
       httpOnly: true,
       sameSite: "none",
-      secure: false, // should be set to true when pushed on production
+      secure: true, // should be set to true when pushed on production
       maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
     },
   })
