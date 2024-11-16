@@ -42,7 +42,8 @@ app.use(
     }),
     cookie: {
       httpOnly: true,
-      secure: false, // should be set to true when pushed on production
+      sameSite: "lax",
+      secure: true, // should be set to true when pushed on production
       maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
     },
   })
