@@ -44,7 +44,7 @@ app.use(
     cookie: {
       httpOnly: true,
       sameSite: "lax",
-      secure: false, // should be set to true when pushed on production
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
     },
   })
