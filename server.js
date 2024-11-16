@@ -14,6 +14,12 @@ require("./models/Post.js");
 
 app.set("trust proxy", 2);
 
+app.use((req, res, next) => {
+  console.log("Client IP:", req.ip);
+  console.log("Forwarded Header:", req.headers["x-forwarded-for"]);
+  next();
+});
+
 app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN,
